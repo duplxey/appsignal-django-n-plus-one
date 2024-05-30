@@ -4,7 +4,7 @@ from books.models import Book
 
 
 def index_view(request):
-    books = Book.objects.all()
+    books = Book.objects.all().select_related("author")
     response = {
         "count": books.count(),
         "results": [{
