@@ -4,7 +4,7 @@ from books.models import Book, Author
 
 
 def book_list_view(request):
-    books = Book.objects.all()
+    books = Book.objects.all().select_related("author")
     return JsonResponse({
         "count": books.count(),
         "results": [book.to_dict() for book in books],
@@ -21,7 +21,7 @@ def book_details_view(request, book_id):
 
 def book_by_author_list_view(request):
     try:
-        authors = Author.objects.all()
+        authors = Author.objects.all().prefetch_related("books")
         return JsonResponse({
             "count": authors.count(),
             "results": [{
