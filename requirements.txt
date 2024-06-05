@@ -1,15 +1,6 @@
-asgiref==3.8.1
-backports.zoneinfo==0.2.1
-certifi==2024.2.2
-charset-normalizer==3.3.2
-Deprecated==1.2.14
 Django==4.2.13
+django-silk==5.1.0
 Faker==25.3.0
-googleapis-common-protos==1.63.0
-idna==3.7
-importlib-metadata==7.0.0
-protobuf==4.25.3
-python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 requests==2.32.3
 six==1.16.0
