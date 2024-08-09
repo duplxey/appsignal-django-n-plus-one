@@ -13,14 +13,12 @@ class BookInline(admin.TabularInline):
 
 
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ["full_name", "birth_date", "created_at", "updated_at"]
-    readonly_fields = ["created_at", "updated_at"]
+    list_display = ["full_name", "birth_date"]
     inlines = [BookInline]
     
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ["title", "author", "published_at", "created_at", "updated_at"]
-    readonly_fields = ["created_at", "updated_at"]
+    list_display = ["title", "author", "published_at"]
 
 
 admin.site.register(Author, AuthorAdmin)

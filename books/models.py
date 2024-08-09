@@ -6,9 +6,6 @@ class Author(models.Model):
     last_name = models.CharField(max_length=64)
     birth_date = models.DateField()
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
 
@@ -21,7 +18,7 @@ class Author(models.Model):
         }
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return self.full_name()
 
 
 class Book(models.Model):
@@ -30,9 +27,6 @@ class Book(models.Model):
     summary = models.TextField(max_length=512, blank=True, null=True)
     isbn = models.CharField(max_length=13, unique=True, help_text="ISBN-13")
     published_at = models.DateField()
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def to_dict(self):
         return {
